@@ -6,13 +6,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 public class returnListOrdersTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru";
+
+        RestAssured.baseURI = Endpoints.BASE;
     }
 
     @Test
@@ -26,7 +28,7 @@ public class returnListOrdersTest {
                 .get("/api/v1/orders");
 
         response.then().assertThat()
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .and()
                 .body("orders", notNullValue());
 

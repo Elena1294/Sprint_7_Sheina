@@ -6,20 +6,21 @@ import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import static org.apache.http.HttpStatus.*;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.equalTo;
 
 public class CourierTest {
-    String token = "5QgwD15jooUaCqL5r89TNZhQu3VtKWxEDLrpIg9usyJnyaaTtDnzkiMi3MgeIck=";
-    Courier courier = new Courier("Helena15", "newpass123", "Elena");
+    Courier courier = new Courier(TestDataCourier.LOGIN, TestDataCourier.PASSWORD, TestDataCourier.FIRST_NAME);
+    CourierAPI courierAPI = new CourierAPI();
     static int id;
 
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru";
+        RestAssured.baseURI = Endpoints.BASE;
 
     }
 
@@ -28,21 +29,12 @@ public class CourierTest {
     @Description("Проверка того, что курьер успешно создается") // описание теста
     public void createNewCourierTest() {
 
-        Response response =
-        given()
-                .header("Content-type", "application/json")
-                .auth().oauth2(token)
-                .and()
-                .body(courier)
-                .when()
-                .post("/api/v1/courier");
-        response.then().statusCode(201);
+        Response response = courierAPI.NewCourier(courier);
+
+        response.then().statusCode(SC_CREATED);
                 MatcherAssert.assertThat(courier, notNullValue());
 
-        Response responseLogin = given()
-                .header("Content-type", "application/json")
-                .body(courier)
-                .when().post("/api/v1/courier/login");
+        Response responseLogin = courierAPI.LoginCourier(courier);
         id = responseLogin.then().extract().path("id");
     }
 
@@ -50,15 +42,11 @@ public class CourierTest {
     @DisplayName("Проверка создания второго одинакового курьера") // имя теста
     @Description("Проверка создания второго одинакового курьера с существующим логином") // описание теста
     public void createDoubleCourierTest() {
-        Courier courierDouble = new Courier("Helen14", "new123", "Elena");
-        Response response = given()
-                .header("Content-type", "application/json")
-                .body(courierDouble)
-                .when()
-                .post("/api/v1/courier");
 
+        Courier courierDouble = new Courier(TestDataCourier.CREATED_LOGIN, TestDataCourier.CREATED_PASSWORD, TestDataCourier.CREATED_FIRST_NAME);
+        Response response = courierAPI.NewCourier(courierDouble);
         response.then().assertThat()
-                .statusCode(409)
+                .statusCode(SC_CONFLICT)
                 .and()
                 .body("message", equalTo("Этот логин уже используется. Попробуйте другой."));
     }
@@ -67,15 +55,9 @@ public class CourierTest {
     @DisplayName("Успешная авторизация") // имя теста
     @Description("Успешная авторизация с существующей парой логин/пароль") // описание теста
     public void checkSuccessfulLoginTest() {
-        Courier courierValid = new Courier("Helen14", "new123");
-        Response response;
-        response = given()
-                .auth().oauth2(token)
-                .and()
-                .body(courierValid)
-                .when()
-                .post("/api/v1/courier/login");
-        response.then().statusCode(200);
+        Courier courierValid = new Courier(TestDataCourier.CREATED_LOGIN, TestDataCourier.CREATED_PASSWORD);
+        Response response = courierAPI.LoginCourier(courierValid);
+        response.then().statusCode(SC_OK);
         response.then().assertThat().body("id", notNullValue());
     }
 
@@ -83,15 +65,11 @@ public class CourierTest {
     @DisplayName("Проверка создания курьера без логина") // имя теста
     @Description("Проверка создания курьера без логина") // описание теста
     public void createCourierWithOutLoginTest() {
-        Courier courierWithOutLogin = new Courier("", "1234", "courierWithOutLogin");
-        Response response = given()
-                .header("Content-type", "application/json")
-                .body(courierWithOutLogin)
-                .when()
-                .post("/api/v1/courier");
 
+        Courier courierWithOutLogin = new Courier("", TestDataCourier.PASSWORD, TestDataCourier.FIRST_NAME);
+        Response response = courierAPI.LoginCourier(courierWithOutLogin);
         response.then().assertThat()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .and()
                 .body("message", equalTo("Недостаточно данных для создания учетной записи"));
     }
@@ -99,22 +77,21 @@ public class CourierTest {
     @DisplayName("Проверка создания курьера без пароля") // имя теста
     @Description("Проверка создания курьера без пароля") // описание теста
     public void createCourierWithOutPasswordTest() {
-        Courier courierWithOutPassword = new Courier("TestQA", "", "courierWithOutPassword");
-        Response response = given()
-                .header("Content-type", "application/json")
-                .body(courierWithOutPassword)
-                .when()
-                .post("/api/v1/courier");
+
+        Courier courierWithOutPassword = new Courier(TestDataCourier.LOGIN, "", TestDataCourier.FIRST_NAME);
+
+        Response response = courierAPI.LoginCourier(courierWithOutPassword);
 
         response.then().assertThat()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .and()
                 .body("message", equalTo("Недостаточно данных для создания учетной записи"));
     }
 
     @After
     public void cleanUp(){
-        given().delete("/api/v1/courier/" + id);
+
+        courierAPI.DeleteCourier(id);
 
     }
 
