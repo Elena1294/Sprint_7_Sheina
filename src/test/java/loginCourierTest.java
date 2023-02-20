@@ -9,7 +9,6 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 public class loginCourierTest {
-
     Courier courier = new Courier(TestDataCourier.CREATED_LOGIN, TestDataCourier.CREATED_PASSWORD, TestDataCourier.CREATED_FIRST_NAME);
     CourierAPI courierAPI = new CourierAPI();
 

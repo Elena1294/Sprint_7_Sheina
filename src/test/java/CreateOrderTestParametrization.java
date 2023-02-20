@@ -45,7 +45,6 @@ public class CreateOrderTestParametrization {
         };
     }
 
-
     @Before
     public void setUp() {
 
@@ -67,6 +66,4 @@ public class CreateOrderTestParametrization {
                 .body("track", notNullValue());
 
     }
-
-
 }

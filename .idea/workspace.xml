@@ -5,20 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2ce3296-f9f2-4eee-8ae0-822fa47f61e9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Courier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CourierResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/CourierTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestStatusCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/createOrderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/loginCourierTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/returnListOrdersTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CreateOrderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Courier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Courier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CourierAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CourierAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CourierResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Endpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Endpoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/OrderAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OrderAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TestDataCourier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestDataCourier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TestDataOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TestDataOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CourierTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CourierTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CreateOrderTestParametrization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CreateOrderTestParametrization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/createOrderTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/loginCourierTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/loginCourierTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/returnListOrdersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/returnListOrdersTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,22 +39,29 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2L898tBk056BdWeKiLsQKAA4da8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/Amazon Corretto/projects/Sprint_7_Sheina&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "E:/Работа/Теория и практика/Последние блоки/Cmder/vendor/git-for-windows/Sprint_7_Sheina",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="JUnit.CourierTest.checkSuccessfulLoginTest">
     <configuration name="CourierTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Sprint_7_Sheina" />
@@ -122,5 +130,16 @@
       <updated>1675241690286</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
