@@ -1,4 +1,5 @@
-public class TestDataOrder { public static final String FIRST_NAME = "Елена";
+public class TestDataOrder {
+    public static final String FIRST_NAME = "Елена";
     public static final String LAST_NAME = "Шеина";
     public static final String ADDRESS = "ульяновская улица д 5 - 98";
     public static final String METRO_STATION = "Бульвар Рокоссовского";

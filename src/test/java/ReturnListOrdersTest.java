@@ -4,6 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Before;
 import org.junit.Test;
+
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -15,6 +16,7 @@ public class returnListOrdersTest {
 
         RestAssured.baseURI = Endpoints.BASE;
     }
+
     @Test
     @DisplayName("Проверка возврата списка заказов") // имя теста
     @Description("Проверка возврата списка заказов") // описание теста
